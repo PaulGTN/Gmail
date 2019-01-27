@@ -53,3 +53,5 @@ class MailVille
     save_as_csv(municipalities)
     end
   end
+
+end

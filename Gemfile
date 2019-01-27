@@ -1,4 +1,10 @@
-gem 'ruby 2.5.1p57'
+source 'https://rubygems.org'
+
+ruby '2.5.1'
+gem 'rubocop', '~> 0.57.2'
+gem 'nokogiri'
+gem 'csv'
 gem 'pry'
 gem 'rspec'
 gem 'rubycop'
+gem 'dotenv'
