@@ -5,9 +5,9 @@ require 'nokogiri'
 require 'open-uri'
 require 'csv'
 
-page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/val-d-oise.html"))
+page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/somme.html"))
 
-PAGE_URL = "http://annuaire-des-mairies.com/val-d-oise.html"
+PAGE_URL = "http://annuaire-des-mairies.com/somme.html"
 
 # définition de la classe ville ==> mail
 class MailVille
@@ -25,7 +25,7 @@ class MailVille
 
   # récupérer le nom des villes et y associer une url
   def get_the_url(page) 
-    url = page.chomp("val-d-oise.html") 
+    url = page.chomp("somme.html") 
     page = Nokogiri::HTML(open(page))
     municipalities = [] 
     page.css("a.lientxt").each do |municipality| 
@@ -36,7 +36,7 @@ class MailVille
 
   # méthode pour sauvegarder la liste sur un fichier csv
   def save_as_csv(municipalities)
-    CSV.open("/home/paul/Documents/save_as_project/db/email.csv", "wb")  do |csv| 
+    CSV.open("/home/paul/Documents/week3/Gmail/db/email.csv", "wb")  do |csv| 
     municipalities.each do |municipality|
     municipality.each_pair do |ville, mail|
     csv << [ville, mail]
@@ -53,3 +53,5 @@ class MailVille
     save_as_csv(municipalities)
     end
   end
+
+end
